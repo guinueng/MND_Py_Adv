@@ -5,10 +5,10 @@
 
 <div class="Guinueng_500px_div">
     <div class="mb-4">
-        <h4>SignUp</h4>
+        <h4>Change Info</h4>
     </div>
 
-    <form action="{%url 'accountapp:create' %}" method = "post">
+    <form action="{%url 'accountapp:update' pk=user.pk %}" method = "post">
         {% csrf_token %}
         {% bootstrap_form form %}
         <input type="submit" class="btn btn-dark rounded-pil col-6 mt-3">
