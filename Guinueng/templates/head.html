@@ -15,4 +15,31 @@
     
 	<!-- Default CSS Link -->
     <link rel = "stylesheet" type = "text/css" href = "{% static 'base.css' %}">
+
+    <style>
+        @font-face {
+            font-family : 'NanumBarunGothicR';
+            src : local('NanumBarunGothicRS'),
+            url("{% static 'fonts/NanumBarunGothic.otf' %}") format("opentype");
+        }
+
+        @font-face {
+            font-family : 'NanumBarunGothicB';
+            src : local('NanumBarunGothicB'),
+            url("{% static 'fonts/NanumBarunGothicBold.otf' %}") format("opentype");
+        }
+
+        @font-face {
+            font-family : 'NanumBarunGothicL';
+            src : local('NanumBarunGothicL'),
+            url("{% static 'fonts/NanumBarunGothicLight.otf' %}") format("opentype");
+        }
+
+        @font-face {
+            font-family : 'NanumBarunGothicUL';
+            src : local('NanumBarunGothicUL'),
+            url("{% static 'fonts/NanumBarunGothicUltraLight.otf' %}") format("opentype");
+        }
+    </style>
+
 </head>
