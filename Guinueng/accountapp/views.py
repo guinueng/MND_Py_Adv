@@ -10,17 +10,23 @@ from accountapp.forms import Account_Update_Form
 # Create your views here.
 
 def hello_world(request):
-    if request.method == "POST":
-        temp = request.POST.get('hello_world_input')
 
-        new_hello_world = Hello_World()
-        new_hello_world.text = temp
-        new_hello_world.save()
+    if request.user.is_authenticated:
 
-        return HttpResponseRedirect(reverse('accountapp:hello_world'))
+        if request.method == "POST":
+            temp = request.POST.get('hello_world_input')
+
+            new_hello_world = Hello_World()
+            new_hello_world.text = temp
+            new_hello_world.save()
+
+            return HttpResponseRedirect(reverse('accountapp:hello_world'))
+        else:
+            hello_world_list = Hello_World.objects.all()
+            return render(request, 'accountapp/hello_world.html', context={'hello_world_list': hello_world_list})
+
     else:
-        hello_world_list = Hello_World.objects.all()
-        return render(request, 'accountapp/hello_world.html', context={'hello_world_list': hello_world_list})
+        return HttpResponseRedirect(reverse('accountapp:login'))
 
 class Account_Create_View(CreateView):
     model = User
