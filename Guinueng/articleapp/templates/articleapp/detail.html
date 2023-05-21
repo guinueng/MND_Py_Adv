@@ -8,19 +8,32 @@
                 {{ target_article.title }}
             </h1>
 
-            <img src="{{ target_article.image.url }}" alt="">
+            <h6>
+                {{ target_article.writer.profile.nickname }}
+            </h6>
+
+            <hr>
+
+            <img style="width:100%; border_radius=1rem; margin:2rem 0" 
+                src="{{ target_article.image.url }}" alt="">
 
             <p>
                 {{ target_article.content }}
             </p>
             
-            <a href="{% url 'articleapp:update' pk=target_article.pk %}">
-            	<p>Update Article</p>
+            {% if target_article.writer == user %}
+            <a href="{% url 'articleapp:update' pk=target_article.pk %}"
+                class="btn btn-primary rounded-pill">
+            	Update
             </a>
 
-            <a href="{% url 'articleapp:delete' pk=target_article.pk %}" class="btn btn-danger rounded=pill col-3 mt-3 mb-3">
-            	<p>Delete Article</p>
+            <a href="{% url 'articleapp:delete' pk=target_article.pk %}"
+                class="btn btn-danger rounded-pill">
+            	Delete
         	</a>
+            {% endif %}
+
+            <hr>
 
         </div>
 	</div>
