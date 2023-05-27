@@ -1,5 +1,4 @@
 from django.urls import path
-from django.views.generic import TemplateView
 from articleapp.views import Article_Create_View, Article_Detail_View, Article_Update_View
 from articleapp.views import Article_Delete_View, Article_List_View
 

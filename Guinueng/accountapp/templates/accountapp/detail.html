@@ -5,7 +5,7 @@
 	<div class='Guinueng_500px_div'>
         <div>
             {% if target_user.profile %}
-            	<img src="{{ target_user.profile.image.url }}" alt="" style="height: 20rem; width: 20rem; border-radius: 10rem"; margin-bottom: 2rem;>
+            	<img src="{{ target_user.profile.image.url }}" alt="" style="height: 20rem; width: 20rem; border-radius: 10rem; margin-bottom: 2rem; object-fit: cover;">
             	<h2 style="font-family: 'NanumBarunGothicB'">
                     {{ target_user.profile.nickname }}
                     {% if target_user == user %}
