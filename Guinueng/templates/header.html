@@ -14,7 +14,11 @@
             	<span>Projects</span>
             </a>
         </span>
-        
+        <span>
+        	<a href="{% url 'subscriptionapp:list' %}" class="Guinueng_header_nav">
+            	<span>Subscription</span>
+            </a>
+        </span>
         {% if not user.is_authenticated %}
         <a href="{% url 'accountapp:login' %}?next={{ request.path }}" class="Guinueng_header_nav">
         	<span>Login</span>
