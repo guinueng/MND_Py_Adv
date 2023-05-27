@@ -2,8 +2,8 @@
 
 {% block content %}
 
-	<div class='Guinueng_500px_div'>
-        <div>
+	<div>
+        <div class='Guinueng_500px_div'>
             {% if target_user.profile %}
             	<img src="{{ target_user.profile.image.url }}" alt="" style="height: 20rem; width: 20rem; border-radius: 10rem; margin-bottom: 2rem; object-fit: cover;">
             	<h2 style="font-family: 'NanumBarunGothicB'">
@@ -44,6 +44,12 @@
             </a>
             {% endif %}
                        
+        </div>
+
+        <hr>
+
+        <div>
+            {% include 'snippets/Guinueng_list.html' with article_list=object_list %}
         </div>
 	</div>
 

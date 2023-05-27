@@ -3,8 +3,10 @@ from django.urls import reverse
 from django.views.generic import CreateView, DetailView, ListView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.views.generic.list import MultipleObjectMixin
 from projectapp.forms import Project_Creation_Form
 from projectapp.models import Project
+from articleapp.models import Article
 # Create your views here.
 
 
@@ -25,10 +27,16 @@ class Project_Create_View(CreateView):
         return reverse('projectapp:detail', kwargs={'pk': self.object.pk})
 
 
-class Project_Detail_View(DetailView):
+class Project_Detail_View(DetailView, MultipleObjectMixin):
     model = Project
     context_object_name = 'target_project'
     template_name = 'projectapp/detail.html'
+
+    paginate_by = 25
+
+    def get_context_data(self, **kwargs):
+        object_list = Article.objects.filter(project=self.get_object())
+        return super(Project_Detail_View, self).get_context_data(object_list=object_list, **kwargs)
 
 
 class Project_List_View(ListView):

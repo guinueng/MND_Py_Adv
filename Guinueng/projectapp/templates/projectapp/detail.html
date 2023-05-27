@@ -4,28 +4,33 @@
 
 	<div>
         <div class='Guinueng_500px_div'>
-        	<h1>
-                {{ target_project.title }}
-            </h1>
 
-            <hr>
+            <img src="{{ target_project.image.url }}" alt="" 
+                 style="height: 12rem; width: 12rem; border-radius: 20rem; margin-bottom: 2rem; object-fit: cover;">
+
+            <h2 style="font-family: 'NamunBarunGothicB">
+                {{ target_project.title }}
+            </h2>
 
             <h6>
-                {{ target_project.writer.profile.nickname }}
+                제작자 : {{ target_project.writer.profile.nickname }}
             </h6>
 
-            <hr>
-
-            <img style="width:100%; border_radius=1rem; margin:2rem 0" 
-                src="{{ target_project.image.url }}" alt="">
-
-            <hr>
+            <p>
+                - Description -
+            </p>
 
             <p>
                 {{ target_project.description }}
-            </p>
+            </p> 
+    	</div>
 
-            <hr>
+        <hr>
+
+    	<div>
+            <div>
+                {% include 'snippets/Guinueng_list.html' with article_list=object_list %}
+            </div>
 
         </div>
 	</div>
