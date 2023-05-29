@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+<div class="Guinueng_500px_div">
+    <div class="mb-4">
+        <h4>Change Info</h4>
+    </div>
+
+    <form action="{%url 'accountapp:update' pk=target_user.pk %}" method = "post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-dark rounded-pil col-6 mt-3">
+    </form>
+</div>
+
+{% endblock %}

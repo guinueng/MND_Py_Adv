@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<div>
+        <div class='Guinueng_500px_div'>
+        	<h1>
+                {{ target_article.title }}
+            </h1>
+
+            <h6>
+                {{ target_article.writer.profile.nickname }}
+            </h6>
+
+            <hr>
+
+            <img style="width:100%; border_radius=1rem; margin:2rem 0" 
+                src="{{ target_article.image.url }}" alt="">
+
+            <div style="text-align: left;">
+                {{ target_article.content | safe }}
+            </div>
+            
+            {% if target_article.writer == user %}
+            <a href="{% url 'articleapp:update' pk=target_article.pk %}"
+                class="btn btn-primary rounded-pill">
+            	Update
+            </a>
+
+            <a href="{% url 'articleapp:delete' pk=target_article.pk %}"
+                class="btn btn-danger rounded-pill">
+            	Delete
+        	</a>
+            {% endif %}
+
+            <hr>
+
+            {% for comment in target_article.comment.all %}
+            	{% include 'commentapp/detail.html' with comment=comment %}
+            {% endfor %}
+
+            {% include 'commentapp/create.html' with article=target_article %}
+
+        </div>
+	</div>
+
+{% endblock %}
