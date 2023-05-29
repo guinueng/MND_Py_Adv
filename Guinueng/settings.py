@@ -35,7 +35,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'guinueng.run.goorm.io']
+ALLOWED_HOSTS = ['0.0.0.0', 'guinueng.run.goorm.io', 'test.guinueng.com', 'blog.guinueng.com']
 
 
 # Application definition
